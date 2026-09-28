@@ -49,43 +49,28 @@
   margin-top: 1.5rem;
 }
 
-/* Reserva uma área visual estável para o globo neon sem introduzir conteúdo textual redundante. */
+/* Reserva uma área estável para o globo sem criar painel, preenchimento ou fundo atrás da imagem transparente. */
 .hero__visual {
   position: relative;
   display: grid;
   min-height: 20rem;
   place-items: center;
   isolation: isolate;
-  overflow: hidden;
-  border-radius: clamp(1.25rem, 4vw, 2.4rem);
-  background:
-    radial-gradient(circle at 50% 50%, rgb(34 211 238 / 0.09), transparent 58%),
-    linear-gradient(145deg, rgb(15 28 46 / 0.24), rgb(7 17 31 / 0.08));
+  overflow: visible;
+  background: transparent;
+  pointer-events: none;
 }
 
-/* Cria um halo desfocado que reforça a profundidade sem depender de animação contínua. */
-.hero__visual-glow {
-  position: absolute;
-  width: 64%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: rgb(34 211 238 / 0.24);
-  filter: blur(4rem);
-  transform: translate(8%, 4%);
-}
-
-/* Apresenta o globo com transparência e brilho suave para integrar a imagem ao fundo escuro do projeto. */
+/* Integra o globo transparente ao fundo da página usando apenas o brilho existente na própria arte. */
 .hero__visual-image {
   position: relative;
   z-index: 1;
-  width: min(94%, 40rem);
+  display: block;
+  width: min(100%, 42rem);
   height: auto;
-  opacity: 0.78;
-  filter:
-    blur(0.25px)
-    drop-shadow(0 0 1.1rem rgb(34 211 238 / 0.34))
-    drop-shadow(0 0 3rem rgb(59 130 246 / 0.18));
-  transform: rotate(-4deg) scale(1.03);
+  opacity: 0.9;
+  filter: drop-shadow(0 0 1.4rem rgb(34 211 238 / 0.22));
+  transform: rotate(-3deg) scale(1.02);
 }
 
 /* Amplia a área visual a partir de tablets e preserva espaço proporcional ao texto. */
@@ -95,7 +80,7 @@
   }
 
   .hero__visual-image {
-    width: min(86%, 43rem);
+    width: min(92%, 45rem);
   }
 }
 
@@ -116,11 +101,11 @@
   }
 
   .hero__visual-image {
-    width: min(100%, 46rem);
+    width: min(108%, 48rem);
   }
 }
 
-/* Expande o globo em desktops sem permitir que ele ultrapasse os limites do contêiner principal. */
+/* Expande o globo em desktops sem permitir que ele comprometa o alinhamento do conteúdo textual. */
 @media (min-width: 80rem) {
   .hero__content {
     grid-template-columns: minmax(0, 1fr) minmax(34rem, 1fr);
@@ -130,16 +115,20 @@
   .hero__visual {
     min-height: 38rem;
   }
+
+  .hero__visual-image {
+    width: min(112%, 52rem);
+  }
 }
 
 /* Aproveita telas largas sem aumentar indefinidamente o texto ou comprometer a hierarquia visual. */
 @media (min-width: 100rem) {
   .hero__visual-image {
-    width: min(92%, 50rem);
+    width: min(110%, 56rem);
   }
 }
 
-/* Remove filtros decorativos mais custosos quando o sistema solicita redução de movimento e efeitos. */
+/* Remove transformações decorativas quando o sistema solicita redução de movimento e efeitos. */
 @media (prefers-reduced-motion: reduce) {
   .hero__visual-image {
     transform: none;

@@ -3,6 +3,14 @@ const WORLD_BANK_COUNTRIES_URL = `${WORLD_BANK_API_BASE_URL}/country?format=json
 const WORLD_BANK_POPULATION_URL = `${WORLD_BANK_API_BASE_URL}/country/all/indicator/SP.POP.TOTL?format=json&mrnev=1&per_page=400`;
 const COUNTRIES_NOW_CAPITALS_URL = 'https://countriesnow.space/api/v0.1/countries/capital';
 
+// Mantém coordenadas complementares para territórios cujo registro do Banco Mundial não fornece latitude e longitude.
+const SPECIAL_COUNTRY_COORDINATES = {
+  CHANNEL_ISLANDS: {
+    latitude: 49.4167,
+    longitude: -2.35,
+  },
+};
+
 // Mantém traduções curtas e consistentes para as regiões utilizadas pelo Banco Mundial.
 const REGION_LABELS_PT_BR = {
   EAS: 'Leste da Ásia e Pacífico',
@@ -105,6 +113,17 @@ function normalizeCountries(countryPayload, populationPayload, capitalPayload) {
       const complementaryCountry = capitalByIso3.get(id) ?? capitalByIso2.get(code);
       const fallbackName = complementaryCountry?.name || country.name;
       const capital = complementaryCountry?.capital?.trim() || country.capitalCity?.trim();
+      const normalizedFallbackName = String(fallbackName || '').toLocaleLowerCase('en-US');
+
+      // Identifica Channel Islands para completar as coordenadas aproximadas quando a fonte principal não as fornece.
+      const isChannelIslands =
+        id === 'CHI' ||
+        code === 'JG' ||
+        normalizedFallbackName.includes('channel islands') ||
+        normalizedFallbackName.includes('ilhas do canal');
+      const specialCoordinates = isChannelIslands
+        ? SPECIAL_COUNTRY_COORDINATES.CHANNEL_ISLANDS
+        : null;
 
       return {
         id,
@@ -115,8 +134,8 @@ function normalizeCountries(countryPayload, populationPayload, capitalPayload) {
         region: REGION_LABELS_PT_BR[country.region?.id] || country.region?.value || 'Não informada',
         incomeLevel: INCOME_LABELS_PT_BR[country.incomeLevel?.id] || country.incomeLevel?.value || 'Não informado',
         capital: capital || 'Não informada',
-        longitude: country.longitude || null,
-        latitude: country.latitude || null,
+        longitude: country.longitude || specialCoordinates?.longitude || null,
+        latitude: country.latitude || specialCoordinates?.latitude || null,
         population: population?.value ?? null,
         populationYear: population?.year ?? null,
       };

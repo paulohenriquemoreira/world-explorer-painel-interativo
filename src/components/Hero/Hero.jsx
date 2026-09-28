@@ -1,4 +1,4 @@
-import neonGlobe from '../../assets/images/neon-globe.webp';
+import neonGlobe from '../../assets/images/neon-globe-transparent.webp';
 import './Hero.css';
 
 function Hero() {
@@ -17,15 +17,14 @@ function Hero() {
           </a>
         </div>
 
-        {/* Exibe uma representação decorativa do globo sem duplicar informações para tecnologias assistivas. */}
+        {/* Exibe somente o globo neon transparente e evita anunciar uma imagem puramente decorativa aos leitores de tela. */}
         <figure className="hero__visual" aria-hidden="true">
-          <span className="hero__visual-glow" />
           <img
             className="hero__visual-image"
             src={neonGlobe}
             alt=""
-            width="900"
-            height="871"
+            width="1593"
+            height="987"
             decoding="async"
             fetchPriority="high"
           />

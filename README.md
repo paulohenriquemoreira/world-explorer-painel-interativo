@@ -2,7 +2,7 @@
 
 O **World Explorer** é uma aplicação web desenvolvida com **React + Vite** para transformar dados públicos sobre países em uma experiência de consulta simples, visual, responsiva e acessível.
 
-O projeto foi criado para o **Painel Interativo com API Pública**, demonstrando consumo de API, manipulação de dados, componentização, interações, tratamento de estados, acessibilidade, responsividade, testes e preocupação com SEO e performance.
+O projeto foi criado para o **Desafio 02 — Painel Interativo com API Pública**, demonstrando consumo de API, manipulação de dados, componentização, interações, tratamento de estados, acessibilidade, responsividade, testes e preocupação com SEO e performance.
 
 ---
 
@@ -451,7 +451,7 @@ npm run test:watch
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/paulohenriquemoreira/world-explorer-painel-interativo
+git https://github.com/paulohenriquemoreira/world-explorer-painel-interativo
 ```
 
 ### 2. Entre na pasta
