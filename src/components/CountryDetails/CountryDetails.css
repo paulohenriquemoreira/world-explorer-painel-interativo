@@ -1,0 +1,101 @@
+/* Cobre a tela inteira e cria contraste suficiente entre o diálogo e o conteúdo ao fundo. */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  overflow-y: auto;
+  background: rgb(2 8 23 / 0.86);
+}
+
+/* Limita o tamanho do diálogo e permite rolagem interna em telas menores. */
+.country-modal {
+  position: relative;
+  width: min(100%, 44rem);
+  max-height: calc(100dvh - 2rem);
+  padding: 1.4rem;
+  overflow-y: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-strong);
+}
+
+/* Posiciona o botão de fechar de forma previsível no canto superior do diálogo. */
+.country-modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+/* Organiza bandeira e título em uma linha que se adapta a conteúdos longos. */
+.country-modal__heading {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: center;
+  padding-right: 3rem;
+}
+
+/* Exibe os códigos como metadado de apoio com alto contraste. */
+.country-modal__code {
+  color: var(--color-accent);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+/* Mantém o texto explicativo claramente legível sobre a superfície escura. */
+.country-modal__heading p:last-child {
+  margin-top: 0.4rem;
+  color: var(--color-text-muted);
+}
+
+/* Organiza as informações detalhadas em uma coluna no mobile. */
+.country-modal__facts {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+/* Separa cada informação em um bloco com borda para melhorar o reconhecimento visual. */
+.country-modal__facts div {
+  padding: 0.9rem;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-alt);
+}
+
+/* Diferencia semanticamente o rótulo sem diminuir o contraste do texto. */
+.country-modal__facts dt {
+  margin-bottom: 0.2rem;
+  color: var(--color-text-muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+/* Mantém o valor do dado com maior hierarquia visual. */
+.country-modal__facts dd {
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+/* Mantém a principal ação do diálogo larga o suficiente para toque no mobile. */
+.country-modal__favorite {
+  width: 100%;
+  margin-top: 1.3rem;
+}
+
+/* Distribui as informações em duas colunas quando a largura permite leitura confortável. */
+@media (min-width: 48rem) {
+  .country-modal {
+    padding: 1.8rem;
+  }
+
+  .country-modal__facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

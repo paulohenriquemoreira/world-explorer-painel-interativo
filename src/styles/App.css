@@ -1,0 +1,148 @@
+/* Mantém o conteúdo principal com altura suficiente para empurrar o rodapé em telas altas. */
+.app-shell {
+  min-height: 100vh;
+}
+
+/* Torna o link de pular conteúdo invisível até receber foco por teclado. */
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  padding: 0.7rem 1rem;
+  border-radius: var(--radius-sm);
+  color: var(--color-accent-contrast);
+  background: var(--color-focus);
+  font-weight: 900;
+  transform: translateY(-160%);
+}
+
+/* Torna o atalho imediatamente visível quando um usuário de teclado o alcança. */
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* Separa a área de exploração da introdução com espaço adaptado ao mobile. */
+.explorer-section {
+  padding: 1rem 0 2rem;
+}
+
+/* Mantém o título e a descrição dos filtros próximos para estabelecer contexto. */
+.explorer-heading {
+  display: grid;
+  gap: 0.45rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Escala o título da seção sem provocar linhas excessivamente grandes. */
+.explorer-heading h2 {
+  font-size: clamp(1.6rem, 6vw, 2.4rem);
+}
+
+/* Mantém a descrição com contraste alto e largura de leitura controlada. */
+.explorer-heading p {
+  max-width: 68ch;
+  color: var(--color-text-muted);
+}
+
+/* Agrupa os controles em uma coluna no mobile para preservar áreas de toque e evitar compressão. */
+.filters-panel {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Mantém o botão de favoritos alinhado ao padrão de altura dos demais controles. */
+.favorite-filter {
+  align-self: end;
+  width: 100%;
+}
+
+/* Mostra quantidade de resultados e favoritos em uma área que pode ser atualizada por leitores de tela. */
+.results-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1.2rem 0 1rem;
+  color: var(--color-text-muted);
+  font-weight: 700;
+}
+
+/* Reforça numericamente o total apresentado sem depender de mudança de cor. */
+.results-summary strong {
+  color: var(--color-text);
+}
+
+/* Aumenta a separação superior da área de resultados para melhor escaneabilidade. */
+.results-area {
+  min-height: 24rem;
+}
+
+
+/* Mantém estados de retorno visualmente coerentes e centraliza estilos compartilhados entre erro e ausência de resultados. */
+.feedback-state {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  padding: 2.5rem 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  background: var(--color-surface);
+}
+
+/* Cria um marcador reconhecível sem exigir dependências de ícones. */
+.feedback-state__icon {
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--color-accent-contrast);
+  background: var(--color-accent);
+  font-size: 1.35rem;
+  font-weight: 900;
+}
+
+/* Limita o texto explicativo e preserva alto contraste. */
+.feedback-state p {
+  max-width: 48ch;
+  color: var(--color-text-muted);
+}
+
+/* Organiza busca e filtros em duas colunas a partir de tablets. */
+@media (min-width: 48rem) {
+  .explorer-section {
+    padding-top: 1.5rem;
+  }
+
+  .filters-panel {
+    grid-template-columns: minmax(0, 1.5fr) minmax(12rem, 1fr);
+    padding: 1.2rem;
+  }
+
+  .favorite-filter {
+    width: auto;
+  }
+}
+
+/* Distribui todos os controles em uma única linha de trabalho a partir de notebooks. */
+@media (min-width: 64rem) {
+  .filters-panel {
+    grid-template-columns: minmax(18rem, 1.6fr) minmax(14rem, 1fr) minmax(13rem, 0.85fr) auto;
+    align-items: end;
+  }
+}
+
+/* Aumenta o respiro vertical em desktops para manter proporção com a largura disponível. */
+@media (min-width: 80rem) {
+  .explorer-section {
+    padding-bottom: 3rem;
+  }
+}

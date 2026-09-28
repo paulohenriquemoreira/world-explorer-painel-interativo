@@ -1,0 +1,78 @@
+/* Mantém o cabeçalho visível durante a navegação e aplica uma superfície com transparência controlada. */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid var(--color-border);
+  background: rgb(7 17 31 / 0.96);
+  background: color-mix(in srgb, var(--color-background) 92%, transparent);
+  backdrop-filter: blur(14px);
+}
+
+/* Organiza a marca e a navegação em uma linha compacta no mobile. */
+.site-header__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 4.5rem;
+}
+
+/* Destaca a identidade visual sem depender de uma imagem adicional. */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--color-text);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* Dimensiona o ícone da marca de forma proporcional à tipografia. */
+.brand__icon {
+  font-size: 1.55rem;
+}
+
+/* Mantém o texto da marca legível sem ocupar espaço excessivo. */
+.brand__text {
+  font-size: clamp(1rem, 4vw, 1.2rem);
+}
+
+/* Agrupa os links de navegação com área de toque confortável. */
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Torna os links fáceis de identificar por contraste e estado de interação. */
+.site-nav a {
+  padding: 0.7rem 0.75rem;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+/* Evidencia a interação sem depender exclusivamente de mudança de cor. */
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+}
+
+/* Amplia o espaçamento do cabeçalho em tablets e telas maiores. */
+@media (min-width: 48rem) {
+  .site-header__content {
+    min-height: 5rem;
+  }
+
+  .site-nav {
+    gap: 0.5rem;
+  }
+
+  .site-nav a {
+    padding-inline: 1rem;
+  }
+}

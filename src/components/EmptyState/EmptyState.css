@@ -1,0 +1,4 @@
+/* Mantém o componente preparado para receber ajustes visuais específicos sem duplicar os estilos compartilhados de feedback. */
+.feedback-state:not(.feedback-state--error) {
+  border-color: var(--color-border);
+}

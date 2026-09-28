@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="World Explorer é um painel interativo em React para pesquisar, filtrar e favoritar informações de países combinando dados de fontes públicas."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Paulo Henrique Moreira" />
+    <meta name="theme-color" content="#07111f" />
+    <meta name="color-scheme" content="dark" />
+    <meta property="og:title" content="World Explorer — Painel Interativo de Países" />
+    <meta
+      property="og:description"
+      content="Explore países, bandeiras, capitais, regiões e população em uma interface responsiva e acessível."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" type="image/svg+xml" href="/world-explorer.svg" />
+    <link rel="preconnect" href="https://api.worldbank.org" crossorigin />
+    <link rel="preconnect" href="https://countriesnow.space" crossorigin />
+    <link rel="dns-prefetch" href="https://flags.restcountries.com" />
+    <title>World Explorer | Painel Interativo de Países</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "World Explorer",
+        "description": "Painel interativo de países desenvolvido em React com dados de fontes públicas.",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Any",
+        "author": {
+          "@type": "Person",
+          "name": "Paulo Henrique Moreira"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

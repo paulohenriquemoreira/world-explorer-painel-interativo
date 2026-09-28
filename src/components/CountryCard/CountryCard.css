@@ -1,0 +1,82 @@
+/* Organiza cada país em um cartão flexível que preserva altura visual consistente. */
+.country-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Mantém a bandeira e o controle de favorito nas extremidades superiores do cartão. */
+.country-card__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Distribui o conteúdo principal e permite que o botão permaneça alinhado ao final do cartão. */
+.country-card__content {
+  flex: 1;
+  padding-top: 1.15rem;
+}
+
+/* Identifica os códigos do país com contraste secundário ainda legível. */
+.country-card__code {
+  margin-bottom: 0.3rem;
+  color: var(--color-accent);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+/* Mantém o nome do país em destaque e controla quebras de palavras longas. */
+.country-card h2 {
+  overflow-wrap: anywhere;
+  font-size: 1.3rem;
+  line-height: 1.2;
+}
+
+/* Organiza os dados do país em blocos separados para facilitar a leitura por escaneamento. */
+.country-card__facts {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 1.2rem;
+}
+
+/* Separa visualmente cada par de termo e descrição sem depender apenas de cor. */
+.country-card__facts div {
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+/* Diferencia os rótulos dos valores sem reduzir excessivamente o contraste. */
+.country-card__facts dt {
+  margin-bottom: 0.15rem;
+  color: var(--color-text-muted);
+  font-size: 0.78rem;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+/* Mantém os valores principais com peso suficiente para leitura em telas pequenas. */
+.country-card__facts dd {
+  color: var(--color-text);
+  font-weight: 650;
+}
+
+/* Separa o botão de detalhes do conteúdo e mantém largura total para toque confortável. */
+.country-card__details {
+  width: 100%;
+  margin-top: 1.25rem;
+}
+
+/* Amplia o espaçamento interno em telas maiores sem alterar a estrutura do cartão. */
+@media (min-width: 80rem) {
+  .country-card {
+    padding: 1.4rem;
+  }
+}

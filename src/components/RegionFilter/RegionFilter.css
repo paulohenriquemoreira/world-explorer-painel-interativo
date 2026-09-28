@@ -1,0 +1,5 @@
+/* Evita que textos longos de região ultrapassem a largura disponível no mobile. */
+.region-filter select {
+  width: 100%;
+  text-overflow: ellipsis;
+}

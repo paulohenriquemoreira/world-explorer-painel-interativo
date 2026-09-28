@@ -1,0 +1,35 @@
+/* Inicia a grade com uma coluna para garantir leitura confortável no mobile. */
+.country-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/* Exibe duas colunas em tablets quando há espaço suficiente para preservar a largura dos cartões. */
+@media (min-width: 48rem) {
+  .country-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+/* Exibe três colunas em notebooks e mantém os cartões equilibrados. */
+@media (min-width: 64rem) {
+  .country-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Exibe quatro colunas em desktops para aproveitar melhor a área horizontal. */
+@media (min-width: 80rem) {
+  .country-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Exibe cinco colunas apenas em telas largas para evitar cartões excessivamente estreitos. */
+@media (min-width: 100rem) {
+  .country-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}

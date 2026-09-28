@@ -1,0 +1,35 @@
+/* Separa o rodapé do conteúdo principal com uma borda visível e fundo consistente. */
+.site-footer {
+  margin-top: 4rem;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+/* Organiza as informações em coluna no mobile para evitar aperto horizontal. */
+.site-footer__content {
+  display: grid;
+  gap: 0.6rem;
+  padding-block: 1.5rem;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+/* Mantém o link da fonte de dados claramente distinguível do texto comum. */
+.site-footer a {
+  color: var(--color-accent);
+  font-weight: 750;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+/* Distribui autoria e fonte nas extremidades em telas com espaço suficiente. */
+@media (min-width: 48rem) {
+  .site-footer__content {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+
+  .site-footer__source {
+    text-align: right;
+  }
+}

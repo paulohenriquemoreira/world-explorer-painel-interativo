@@ -1,0 +1,4 @@
+/* Mantém o seletor de ordenação ocupando toda a coluna disponível. */
+.sort-select select {
+  width: 100%;
+}

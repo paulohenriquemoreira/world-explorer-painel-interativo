@@ -1,0 +1,26 @@
+/* Permite que o campo de busca ocupe mais espaço que os demais filtros quando houver largura disponível. */
+.search-field {
+  min-width: 0;
+}
+
+/* Posiciona o ícone dentro do controle sem prejudicar a área de digitação. */
+.search-field__control {
+  position: relative;
+}
+
+/* Mantém o ícone decorativo afastado do texto digitado. */
+.search-field__icon {
+  position: absolute;
+  top: 50%;
+  left: 0.95rem;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  font-size: 1.25rem;
+  pointer-events: none;
+}
+
+/* Reserva espaço interno para o ícone e mantém o alvo de toque confortável. */
+.search-field input {
+  width: 100%;
+  padding-left: 2.8rem;
+}

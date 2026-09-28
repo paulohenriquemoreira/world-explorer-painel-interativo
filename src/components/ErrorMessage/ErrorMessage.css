@@ -1,0 +1,10 @@
+/* Destaca o estado de erro com borda, ícone e texto para não depender exclusivamente da cor. */
+.feedback-state--error {
+  border-color: var(--color-error);
+}
+
+/* Usa uma combinação de fundo e texto com contraste suficiente para o símbolo de alerta. */
+.feedback-state--error .feedback-state__icon {
+  color: var(--color-background);
+  background: var(--color-error-soft);
+}
