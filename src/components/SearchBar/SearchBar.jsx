@@ -12,7 +12,7 @@ function SearchBar({ value, onChange }) {
           type="search"
           value={value}
           onChange={(event) => onChange(event.target.value)}
-          placeholder="Ex.: Brasil, Brasília ou BR"
+          placeholder="    Ex.: Brasil, Brasília ou BR"
           autoComplete="off"
           aria-describedby="country-search-help"
         />

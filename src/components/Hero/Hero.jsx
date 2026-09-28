@@ -16,7 +16,7 @@ function Hero() {
             Explorar países
           </a>
         </div>
-
+        
         {/* Exibe somente o globo neon transparente e evita anunciar uma imagem puramente decorativa aos leitores de tela. */}
         <figure className="hero__visual" aria-hidden="true">
           <img

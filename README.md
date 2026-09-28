@@ -508,10 +508,8 @@ O projeto pode ser publicado na **Vercel** ou **Netlify**.
 
 ### Link da aplicação
 
-Após publicar, substitua o texto abaixo pela URL real:
-
 ```text
-https://SEU-PROJETO.vercel.app
+https://world-explorer-painel-interativo.vercel.app/
 ```
 
 ---
